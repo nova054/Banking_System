@@ -1,0 +1,28 @@
+package webapp.bankingsystemapi.enums;
+
+public enum AuditAction {
+
+    LOGIN,
+    REGISTER,
+
+    ACCOUNT_CREATED,
+    ACCOUNT_UPDATED,
+
+    DEPOSIT,
+    WITHDRAW,
+    TRANSFER,
+
+    PASSWORD_RESET,
+
+    VIEW_STATEMENT,
+    SECURITY_VIOLATION,
+
+    TRANSACTION_VIEW,
+    TRANSACTION_INITIATED,
+    TRANSACTION_COMPLETED,
+    TRANSACTION_FAILED,
+    TRANSACTION_REVERSED
+
+
+
+}
