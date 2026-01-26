@@ -25,10 +25,13 @@ public class AdminAggregateServiceImpl implements AdminAggregateService {
             LocalDateTime startOfDay = LocalDate.now().atStartOfDay();
             LocalDateTime endOfDay = startOfDay.plusDays(1);
 
-            Object[] txStats = transactionRepo.getTodayTransactionStats(startOfDay, endOfDay);
+            Object[] txStats = (Object[]) transactionRepo.getTodayTransactionStats(startOfDay, endOfDay);
 
-            long txCount = (long) txStats[0];
-            BigDecimal txAmount = (BigDecimal) txStats[1];
+            Number txCountNumber = (Number) txStats[0];
+            Number txAmountNumber = (Number) txStats[1];
+
+            long txCount = txCountNumber.longValue();
+            BigDecimal txAmount = (txAmountNumber instanceof BigDecimal ? (BigDecimal) txAmountNumber : BigDecimal.valueOf(txAmountNumber.doubleValue()));
 
             return SystemOverviewResponse.builder()
                     .totalUsers(userRepo.count())

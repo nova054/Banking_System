@@ -28,4 +28,8 @@ public class UserDetailsServiceImpl implements MyUserDetailsService {
                 List.of(new SimpleGrantedAuthority("ROLE_" + user.getRole().toString()))
         );
     }
+
+
+
+
 }

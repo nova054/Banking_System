@@ -76,7 +76,7 @@ public interface TransactionRepo extends JpaRepository<Transaction, Long> {
       AND t.createdAt >= :start
       AND t.createdAt < :end
 """)
-    Object[] getTodayTransactionStats(
+    Object getTodayTransactionStats(
             LocalDateTime start,
             LocalDateTime end
     );

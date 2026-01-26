@@ -76,6 +76,10 @@ public class AuthServiceImpl implements AuthService {
                 .orElseThrow(() -> new BadRequestException("User not found"));
         user.setLastLoginAt(LocalDateTime.now());
 
+        if(!user.getStatus().equals(UserStatus.ACTIVE) || !user.isActive() ) {
+            throw new BadRequestException("SUSPENDED OR INACTIVE ACCOUNT. CONTACT BANK");
+        }
+
         auditService.logSuccess(
                 AuditAction.LOGIN,
                 AuditEntityType.USER,

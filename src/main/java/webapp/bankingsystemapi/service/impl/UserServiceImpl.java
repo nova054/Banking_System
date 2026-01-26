@@ -15,6 +15,7 @@ import webapp.bankingsystemapi.DTO.user.UserResponse;
 import webapp.bankingsystemapi.enums.AuditAction;
 import webapp.bankingsystemapi.enums.AuditEntityType;
 import webapp.bankingsystemapi.enums.Role;
+import webapp.bankingsystemapi.enums.UserStatus;
 import webapp.bankingsystemapi.exception.BadRequestException;
 import webapp.bankingsystemapi.exception.ResourceNotFoundException;
 import webapp.bankingsystemapi.model.User;
@@ -48,6 +49,8 @@ public class UserServiceImpl implements UserService {
                 .email(request.getEmail())
                 .password(encoder.encode(request.getPassword()))
                 .role(Role.ADMIN)
+                .isActive(true)
+                .status(UserStatus.ACTIVE)
                 .build();
         userRepo.save(user);
         return mapToAdminResponse(user);
@@ -118,6 +121,7 @@ public class UserServiceImpl implements UserService {
         User user = userRepo.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("User is not found with id: " + id));
         user.setActive(false);
+        user.setStatus(UserStatus.SUSPENDED);
     }
     @Override
     @Transactional
@@ -126,6 +130,7 @@ public class UserServiceImpl implements UserService {
         User user = userRepo.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("User is not found with id: " + id));
         user.setActive(true);
+        user.setStatus(UserStatus.ACTIVE);
     }
 
     @Override
