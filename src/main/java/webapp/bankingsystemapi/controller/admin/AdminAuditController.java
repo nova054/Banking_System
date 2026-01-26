@@ -31,7 +31,7 @@ public class AdminAuditController {
     }
 
 
-             @GetMapping("/filters")
+             @PostMapping("/filters")
             public ResponseEntity<Page<AuditLogResponse>> filterAudits(
                      @RequestBody AuditFilterRequest request,
                      @PageableDefault(

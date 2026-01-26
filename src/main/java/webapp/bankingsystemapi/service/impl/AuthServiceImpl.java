@@ -15,6 +15,7 @@ import webapp.bankingsystemapi.config.JWTUtil;
 import webapp.bankingsystemapi.enums.AuditAction;
 import webapp.bankingsystemapi.enums.AuditEntityType;
 import webapp.bankingsystemapi.enums.Role;
+import webapp.bankingsystemapi.enums.UserStatus;
 import webapp.bankingsystemapi.exception.BadRequestException;
 import webapp.bankingsystemapi.model.User;
 import webapp.bankingsystemapi.repo.UserRepo;
@@ -47,6 +48,8 @@ public class AuthServiceImpl implements AuthService {
         User user = User.builder()
                 .fullName(request.getFullName())
                 .email(request.getEmail())
+                .status(UserStatus.ACTIVE)
+                .isActive(true)
                 .password(encoder.encode(request.getPassword()))
                 .role(Role.USER)
                 .build();

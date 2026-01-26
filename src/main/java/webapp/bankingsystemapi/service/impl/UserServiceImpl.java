@@ -157,6 +157,8 @@ public class UserServiceImpl implements UserService {
                 .fullName(user.getFullName())
                 .email(user.getEmail())
                 .role(user.getRole().name())
+                .status(user.getStatus())
+                .isActive(user.isActive())
                 .createdAt(user.getCreatedAt())
                 .lastLoginAt(user.getLastLoginAt())
 //                .accountCount(accountRepo.countAccountsByUserId(user.getId()))

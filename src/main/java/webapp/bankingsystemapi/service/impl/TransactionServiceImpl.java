@@ -161,13 +161,27 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
-    @Transactional(isolation = Isolation.SERIALIZABLE)
+    @Transactional(isolation = Isolation.READ_COMMITTED)
     public TransferResponse transfer(TransferRequest transferRequest, String email) {
         String fromAccountNumber= transferRequest.getFromAccountNumber();
         String toAccountNumber= transferRequest.getToAccountNumber();
 
         Account fromAccount = findByAccountNumber(fromAccountNumber);
         Account toAccount = findByAccountNumber(toAccountNumber);
+
+        if (!hasAdminRole()) {
+            validateAccountOwnership(fromAccount, email);
+        }
+
+        if (transferRequest.getAmount() <= 0)
+            throw new BadRequestException("Transfer amount must be greater than zero.");
+
+        if (fromAccountNumber.equals(toAccountNumber))
+            throw new BadRequestException("Transfer between the same account is not allowed.");
+
+        if (fromAccount.getBalance() < transferRequest.getAmount())
+            throw new BadRequestException("Insufficient Balance.");
+
         String transferId = "TRF-"  + System.currentTimeMillis() + "-" + UUID.randomUUID();
 
         Transaction debitTransaction = Transaction.builder()
@@ -200,18 +214,6 @@ public class TransactionServiceImpl implements TransactionService {
         transactionRepo.save(creditTransaction);
 
         try {
-            if (!hasAdminRole()) {
-                validateAccountOwnership(fromAccount, email);
-            }
-
-            if (transferRequest.getAmount() <= 0)
-                throw new BadRequestException("Transfer amount must be greater than zero.");
-
-            if (fromAccountNumber.equals(toAccountNumber))
-                throw new BadRequestException("Transfer between the same account is not allowed.");
-
-            if (fromAccount.getBalance() < transferRequest.getAmount())
-                throw new BadRequestException("Insufficient Balance.");
 
             //Pending
             debitTransaction.setStatus(TransactionStatus.PENDING);

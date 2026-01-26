@@ -1,5 +1,6 @@
 package webapp.bankingsystemapi.DTO.transaction;
 
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.PositiveOrZero;
@@ -15,7 +16,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 public class StatementRequest {
 
-    @NotNull
+    @NotBlank
     private String accountNumber;
 
     private LocalDate fromDate;

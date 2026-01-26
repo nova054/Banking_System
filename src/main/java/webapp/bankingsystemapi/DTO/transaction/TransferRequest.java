@@ -21,6 +21,7 @@ public class TransferRequest {
     private String toAccountNumber;
 
     @Positive
+    @NotNull
     private Double amount;
 
     private String description;

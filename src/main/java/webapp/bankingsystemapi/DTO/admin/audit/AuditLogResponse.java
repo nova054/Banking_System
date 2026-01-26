@@ -1,8 +1,10 @@
 package webapp.bankingsystemapi.DTO.admin.audit;
 
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import webapp.bankingsystemapi.enums.AuditAction;
 import webapp.bankingsystemapi.enums.AuditEntityType;
 import webapp.bankingsystemapi.enums.AuditStatus;
@@ -11,6 +13,8 @@ import java.time.LocalDateTime;
 
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class AuditLogResponse
 {
     private Long id;

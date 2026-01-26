@@ -20,7 +20,7 @@ public class AdminUserResponse implements UserView {
     private String role;
     private boolean isActive;
     private UserStatus status;
-    private int accountCount;
+//    private int accountCount;
     private LocalDateTime lastLoginAt;
     private LocalDateTime createdAt;
 }

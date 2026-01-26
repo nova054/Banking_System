@@ -67,6 +67,7 @@ public class AccountServiceImpl implements AccountService {
         Account account = Account.builder()
                 .accountNumber(accountNumberGenerator.generate())
                 .type(request.getType())
+                .status(AccountStatus.OPEN)
                 .balance(0.0)
                 .user(user)
                 .build();

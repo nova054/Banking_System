@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 
 @Service
 @RequiredArgsConstructor
-public class AggregateServiceImpl implements AdminAggregateService {
+public class AdminAggregateServiceImpl implements AdminAggregateService {
 
         private final UserRepo userRepo;
         private final AccountRepo accountRepo;

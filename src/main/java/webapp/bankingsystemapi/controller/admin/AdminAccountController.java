@@ -49,7 +49,7 @@ public class AdminAccountController {
         return ResponseEntity.ok(service.getAllAccounts(pageable));
     }
 
-    @PostMapping("/change-status")
+    @PatchMapping("/change-status")
     public ResponseEntity<Void> changeStatus(@Valid @RequestBody AccountUpdateRequest request) {
         service.changeStatus(request.getId(), request.getStatus());
         return ResponseEntity.ok().build();

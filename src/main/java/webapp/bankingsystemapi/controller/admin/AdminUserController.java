@@ -33,7 +33,7 @@ public class AdminUserController {
         return ResponseEntity.ok(service.getAllUsers(pageable));
     }
 
-    @GetMapping("/filter")
+    @PostMapping("/filter")
     public ResponseEntity<Page<AdminUserResponse>> filterUsers(@Valid @RequestBody AdminUserFilterRequest request,@PageableDefault(
             size = 10,
             sort = "createdAt",
