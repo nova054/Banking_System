@@ -39,6 +39,7 @@ public class TransactionServiceImpl implements TransactionService {
 
 
     @Override
+    @Transactional(readOnly = true)
     public Page<TransactionResponse> getStatement(StatementRequest request, String email, Pageable pageable){
         Account account = findByAccountNumber(request.getAccountNumber());
 
