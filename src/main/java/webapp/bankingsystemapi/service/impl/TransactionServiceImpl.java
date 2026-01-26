@@ -272,6 +272,7 @@ public class TransactionServiceImpl implements TransactionService {
 
     @Override
     @PreAuthorize("hasRole('ADMIN')")
+    @Transactional(readOnly = true)
     public Page<AdminTransactionResponse> filterAdminTransactions(
             AdminTransactionFilterRequest request,
             Pageable pageable
