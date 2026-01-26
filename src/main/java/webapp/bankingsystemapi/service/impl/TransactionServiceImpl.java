@@ -21,10 +21,13 @@ import webapp.bankingsystemapi.exception.BadRequestException;
 import webapp.bankingsystemapi.exception.ResourceNotFoundException;
 import webapp.bankingsystemapi.model.Account;
 import webapp.bankingsystemapi.model.Transaction;
+import webapp.bankingsystemapi.model.User;
 import webapp.bankingsystemapi.repo.AccountRepo;
 import webapp.bankingsystemapi.repo.TransactionRepo;
 import webapp.bankingsystemapi.service.AuditService;
 import webapp.bankingsystemapi.service.TransactionService;
+import webapp.bankingsystemapi.validation.AccountValidator;
+import webapp.bankingsystemapi.validation.UserValidator;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -36,6 +39,8 @@ public class TransactionServiceImpl implements TransactionService {
     private final AccountRepo accountRepo;
     private final TransactionRepo transactionRepo;
     private final AuditService auditService;
+    private final UserValidator userValidator;
+    private final AccountValidator accountValidator;
 
 
     @Override
@@ -69,9 +74,17 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     @Transactional
     public TransactionResponse deposit(DepositRequest request,String email) {
-            Account account = findByAccountNumber(request.getAccountNumber());
+        Account account = findByAccountNumber(request.getAccountNumber());
 
-            Transaction transaction = Transaction.builder()
+        if (!hasAdminRole()) {
+            validateAccountOwnership(account, email);
+        }
+
+        if (request.getAmount() <= 0)
+            throw new BadRequestException("Deposit amount must be greater than zero.");
+
+
+        Transaction transaction = Transaction.builder()
                     .account(account)
                     .amount(request.getAmount())
                     .beforeAmount(account.getBalance())
@@ -84,12 +97,6 @@ public class TransactionServiceImpl implements TransactionService {
 
             transactionRepo.save(transaction);
             try {
-                if (!hasAdminRole()) {
-                    validateAccountOwnership(account, email);
-                }
-
-                if (request.getAmount() <= 0)
-                    throw new BadRequestException("Deposit amount must be greater than zero.");
 
                 Double beforeAmount = account.getBalance();
                 account.setBalance(beforeAmount + request.getAmount());
@@ -114,9 +121,20 @@ public class TransactionServiceImpl implements TransactionService {
     @Override
     @Transactional
     public TransactionResponse withdraw(WithdrawRequest withdrawRequest, String email) {
-            Account account = findByAccountNumber(withdrawRequest.getAccountNumber());
+        Account account = findByAccountNumber(withdrawRequest.getAccountNumber());
 
-            Transaction transaction = Transaction.builder()
+        if (!hasAdminRole()) {
+            validateAccountOwnership(account, email);
+        }
+
+        if (withdrawRequest.getAmount() <= 0)
+            throw new BadRequestException("Withdraw amount must be greater than zero.");
+
+        if (account.getBalance() < withdrawRequest.getAmount())
+            throw new BadRequestException("Insufficient balance.");
+
+
+        Transaction transaction = Transaction.builder()
                     .account(account)
                     .amount(withdrawRequest.getAmount())
                     .beforeAmount(account.getBalance())
@@ -130,15 +148,6 @@ public class TransactionServiceImpl implements TransactionService {
             transactionRepo.save(transaction);
 
         try {
-            if (!hasAdminRole()) {
-                validateAccountOwnership(account, email);
-            }
-
-            if (withdrawRequest.getAmount() <= 0)
-                throw new BadRequestException("Withdraw amount must be greater than zero.");
-
-            if (account.getBalance() < withdrawRequest.getAmount())
-                throw new BadRequestException("Insufficient balance.");
 
             Double beforeAmount = account.getBalance();
             account.setBalance(beforeAmount - withdrawRequest.getAmount());
@@ -170,7 +179,7 @@ public class TransactionServiceImpl implements TransactionService {
         Account fromAccount = findByAccountNumber(fromAccountNumber);
         Account toAccount = findByAccountNumber(toAccountNumber);
 
-        if (!hasAdminRole()) {
+        if (!hasAdminRole()) {  //also validated user and account
             validateAccountOwnership(fromAccount, email);
         }
 
@@ -296,6 +305,7 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     @Override
+    @PreAuthorize("hasRole('ADMIN')")
     public Page<AdminTransactionResponse> getAllTransactions(Pageable pageable) {
         return transactionRepo.getAllTransactions(pageable).map(this::mapToAdminResponse);
     }
@@ -318,9 +328,13 @@ public class TransactionServiceImpl implements TransactionService {
     }
 
     private void validateAccountOwnership(Account account, String email) {
-        if (!email.equals(account.getUser().getEmail())) {
+
+        User user = account.getUser();
+        if (!email.equals(user.getEmail())) {
             throw new AccessDeniedException("You are not allowed to access this account");
         }
+        userValidator.validateActive(user);
+        accountValidator.validateActive(account);
     }
 
 

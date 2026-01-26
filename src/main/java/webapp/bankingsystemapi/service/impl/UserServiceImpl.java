@@ -23,6 +23,7 @@ import webapp.bankingsystemapi.repo.AccountRepo;
 import webapp.bankingsystemapi.repo.UserRepo;
 import webapp.bankingsystemapi.service.AuditService;
 import webapp.bankingsystemapi.service.UserService;
+import webapp.bankingsystemapi.validation.UserValidator;
 
 @Service
 @RequiredArgsConstructor
@@ -30,7 +31,7 @@ public class UserServiceImpl implements UserService {
     private final UserRepo userRepo;
     private final PasswordEncoder encoder;
     private final AuditService auditService;
-    private final AccountRepo accountRepo;
+    private final UserValidator userValidator;
 
     @Override
     @PreAuthorize("hasRole('ADMIN')")
@@ -64,9 +65,12 @@ public class UserServiceImpl implements UserService {
     public UserResponse getUser(String email) {
         User user = userRepo.findByEmail(email)
                 .orElseThrow(()-> new ResourceNotFoundException("User not found with email " + email));
+        userValidator.validateActive(user);
 
         return mapToResponse(user);
     }
+
+
     @Override
     @PreAuthorize("hasRole('ADMIN')")
     public AdminUserResponse getUserByEmail(String email) {

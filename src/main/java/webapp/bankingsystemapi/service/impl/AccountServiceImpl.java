@@ -28,6 +28,7 @@ import webapp.bankingsystemapi.repo.UserRepo;
 import webapp.bankingsystemapi.service.AccountService;
 import webapp.bankingsystemapi.service.AuditService;
 import webapp.bankingsystemapi.util.AccountNumberGenerator;
+import webapp.bankingsystemapi.validation.UserValidator;
 
 import java.util.List;
 
@@ -40,8 +41,7 @@ public class AccountServiceImpl implements AccountService {
     private final AccountNumberGenerator accountNumberGenerator;
     private final UserRepo userRepo;
     private final AuditService auditService;
-    private final TransactionRepo transactionRepo;
-    private final PageableHandlerMethodArgumentResolverCustomizer pageableCustomizer;
+    private final UserValidator userValidator;
 
     @Override
     @PreAuthorize("hasRole('ADMIN')")
@@ -63,6 +63,7 @@ public class AccountServiceImpl implements AccountService {
     @PreAuthorize("hasAnyRole('ADMIN', 'USER')")
     public AccountView createAccount(AccountCreateRequest request, String email) {
         User user = findByEmail(email);
+        userValidator.validateActive(user);
 
         Account account = Account.builder()
                 .accountNumber(accountNumberGenerator.generate())
@@ -95,6 +96,7 @@ public class AccountServiceImpl implements AccountService {
                     .map(a -> (AccountView) a)
                     .toList();
         }
+        
         return account
                 .stream()
                 .map(this::mapToResponse)

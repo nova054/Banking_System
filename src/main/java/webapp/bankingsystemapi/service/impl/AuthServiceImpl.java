@@ -21,6 +21,7 @@ import webapp.bankingsystemapi.model.User;
 import webapp.bankingsystemapi.repo.UserRepo;
 import webapp.bankingsystemapi.service.AuditService;
 import webapp.bankingsystemapi.service.AuthService;
+import webapp.bankingsystemapi.validation.UserValidator;
 
 import java.time.LocalDateTime;
 
@@ -33,6 +34,7 @@ public class AuthServiceImpl implements AuthService {
     private final JWTUtil jwtUtil;
     private final AuthenticationManager authenticationManager;
     private final AuditService auditService;
+    private final UserValidator userValidator;
 
 
     @Override
@@ -74,11 +76,8 @@ public class AuthServiceImpl implements AuthService {
         }
         User user = userRepo.findByEmail(request.getEmail())
                 .orElseThrow(() -> new BadRequestException("User not found"));
+        userValidator.validateActive(user);
         user.setLastLoginAt(LocalDateTime.now());
-
-        if(!user.getStatus().equals(UserStatus.ACTIVE) || !user.isActive() ) {
-            throw new BadRequestException("SUSPENDED OR INACTIVE ACCOUNT. CONTACT BANK");
-        }
 
         auditService.logSuccess(
                 AuditAction.LOGIN,
