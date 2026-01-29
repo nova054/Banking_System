@@ -1,11 +1,16 @@
 package webapp.bankingsystemapi.exception;
 
+import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 import webapp.bankingsystemapi.DTO.ApiErrorResponse;
+import webapp.bankingsystemapi.enums.AuditAction;
+import webapp.bankingsystemapi.enums.AuditEntityType;
+import webapp.bankingsystemapi.service.AuditService;
 
 import java.time.LocalDateTime;
 import java.util.stream.Collectors;
@@ -13,8 +18,11 @@ import java.util.stream.Collectors;
 //@ControllerAdvice - Global Exception Handler
 //@ResponseBody - Return JSON
 //@RestControllerAdvice - Conbination of both
+@RequiredArgsConstructor
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+    private final AuditService auditService;
+
 
     // 404 - Resource not found
     @ExceptionHandler(ResourceNotFoundException.class)
@@ -112,4 +120,55 @@ public class GlobalExceptionHandler {
 
         return new ResponseEntity<>(response, HttpStatus.INTERNAL_SERVER_ERROR);
     }
+
+
+    // 403 - Forbidden - User validation
+    @ExceptionHandler(UserValidationException.class)
+    public ResponseEntity<ApiErrorResponse> handleUserValidation(
+            UserValidationException ex) {
+
+        auditService.logFailure(
+                AuditAction.SECURITY_VIOLATION,
+                AuditEntityType.USER,
+                null,
+                ex.getMessage()
+        );
+
+        ApiErrorResponse response = ApiErrorResponse.builder()
+                .status(HttpStatus.FORBIDDEN.value())
+                .error("SECURITY_VIOLATION")
+                .message(ex.getMessage())
+                .timestamp(LocalDateTime.now())
+                .build();
+
+        return new ResponseEntity<>(response, HttpStatus.FORBIDDEN);
+    }
+
+    // 403 - Forbidden - Account validation
+    @ExceptionHandler(AccountValidationException.class)
+    public ResponseEntity<ApiErrorResponse> handleAccountValidation(
+            AccountValidationException ex) {
+
+        auditService.logFailure(
+                AuditAction.SECURITY_VIOLATION,
+                AuditEntityType.ACCOUNT,
+                null,
+                ex.getMessage()
+        );
+
+        ApiErrorResponse response = ApiErrorResponse.builder()
+                .status(HttpStatus.FORBIDDEN.value())
+                .error("SECURITY_VIOLATION")
+                .message(ex.getMessage())
+                .timestamp(LocalDateTime.now())
+                .build();
+
+        return new ResponseEntity<>(response, HttpStatus.FORBIDDEN);
+    }
+
+
+
+
+
+
 }
