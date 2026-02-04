@@ -7,6 +7,7 @@ A production-grade, secure, and scalable banking system backend built with Java 
 This Banking System API addresses the critical need for a secure, reliable, and auditable backend infrastructure in modern banking environments. In an era where digital banking is the norm, financial institutions require robust systems that can handle sensitive transactions while maintaining strict security protocols and regulatory compliance.
 
 The system provides a complete backend solution for core banking operations including user authentication, account management, transaction processing, and administrative oversight. Built with enterprise-grade architecture patterns, it ensures data integrity, transaction safety, and comprehensive audit trails essential for financial operations. The API-first design enables seamless integration with various frontend applications while maintaining strict security boundaries.
+This project was designed incrementally with production trade-offs in mind rather than as a feature-complete demo system.
 
 ## Key Features
 
@@ -28,7 +29,6 @@ The system provides a complete backend solution for core banking operations incl
 - **Comprehensive Audit Logging**: Success and failure logging for all critical operations
 - **Security Event Tracking**: Detailed logging of authentication attempts and access violations
 - **Admin Audit Visibility**: Complete audit trail access for administrative oversight
-- **IP and User Agent Tracking**: Request metadata for forensic analysis
 - **Entity-Level Auditing**: Granular tracking of user, account, and transaction operations
 
 ### Administrative Features
@@ -84,7 +84,32 @@ open http://localhost:8081/swagger-ui.html
 
 ### Layered Architecture
 The system follows a clean, layered architecture pattern:
+```
+┌────────────┐
+│   Client   │
+└─────┬──────┘
+      │ JWT
+┌─────▼──────┐
+│ JWT Filter │
+└─────┬──────┘
+      │ SecurityContext
+┌─────▼──────┐
+│ Controller │
+└─────┬──────┘
+      │ DTO
+┌─────▼──────┐
+│  Service   │───► Audit Service
+└─────┬──────┘
+      │ JPA
+┌─────▼──────┐
+│ Repository │
+└─────┬──────┘
+      │
+┌─────▼──────┐
+│  Database  │
+└────────────┘
 
+```
 ```
 Client Request → JWT Filter → Controller → Service → Repository → Database
 ```
@@ -172,7 +197,7 @@ Each audit log captures:
 ### Audit Access Control
 - **Admin Only Access**: Audit logs are restricted to administrative users
 - **Advanced Filtering**: Search by date range, user, action type, and entity
-- **Immutable Records**: Audit logs cannot be modified or deleted
+- **Immutable Records**: Audit logs are treated as immutable records and exposed as read-only APIs
 - **Performance Optimized**: Efficient indexing for fast audit trail queries
 
 ## Admin Capabilities
@@ -192,7 +217,6 @@ Each audit log captures:
 ### Transaction Monitoring
 - **Global Transaction View**: Access to all system transactions
 - **Advanced Search**: Filter by date ranges, amounts, transaction types, and status
-- **Fraud Detection**: Transaction pattern analysis and anomaly detection
 - **Settlement Reporting**: Daily and periodic transaction summaries
 
 ### Dashboard Analytics
@@ -230,6 +254,24 @@ This comprehensive guide includes:
 - **🛠️ Testing Tips**: Best practices and troubleshooting
 
 **Click here to view complete API documentation**: [API_DEMO_DATA.md](./API_DEMO_DATA.md)
+
+# API Demo Screenshots
+
+## Authentication – Login & JWT Token
+![Login Response](images/login-token.png)
+
+## Swagger Authorization with JWT
+![Swagger Auth](images/swagger-auth.png)
+
+## Create Bank Account (Authenticated)
+![Create Account](images/create-account.png)
+
+## Perform Transaction (Withdraw)
+![Withdraw Transaction](images/withdraw.png)
+
+## Admin – Audit Log Viewer
+![Audit Logs](images/admin-audit.png)
+
 
 ## Database Design
 
@@ -441,6 +483,7 @@ curl http://localhost:8081/actuator/health
    ```sql
    UPDATE USERS SET ROLE = 'ADMIN' WHERE EMAIL = 'admin@bank.com';
    ```
+   For demo purposes. In production, role assignment would be controlled via secured admin workflows.
 
 3. **Login as Admin**:
    ```bash
