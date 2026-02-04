@@ -85,29 +85,29 @@ open http://localhost:8081/swagger-ui.html
 ### Layered Architecture
 The system follows a clean, layered architecture pattern:
 ```
-┌────────────┐
-│   Client   │
-└─────┬──────┘
-      │ JWT
-┌─────▼──────┐
-│ JWT Filter │
-└─────┬──────┘
-      │ SecurityContext
-┌─────▼──────┐
-│ Controller │
-└─────┬──────┘
-      │ DTO
-┌─────▼──────┐
-│  Service   │───► Audit Service
-└─────┬──────┘
-      │ JPA
-┌─────▼──────┐
-│ Repository │
-└─────┬──────┘
-      │
-┌─────▼──────┐
-│  Database  │
-└────────────┘
+                     ┌────────────┐
+                     │   Client   │
+                     └─────┬──────┘
+                           │ JWT
+                     ┌─────▼──────┐
+                     │ JWT Filter │
+                     └─────┬──────┘
+                           │ SecurityContext
+                     ┌─────▼──────┐
+                     │ Controller │
+                     └─────┬──────┘
+                           │ DTO
+                     ┌─────▼──────┐
+                     │  Service   │───► Audit Service
+                     └─────┬──────┘
+                           │ JPA
+                     ┌─────▼──────┐
+                     │ Repository │
+                     └─────┬──────┘
+                           │
+                     ┌─────▼──────┐
+                     │  Database  │
+                     └────────────┘
 
 ```
 ```
