@@ -272,7 +272,7 @@ This comprehensive guide includes:
 ## Admin – Audit Log Viewer
 ![Audit Logs](images/admin-audit.png)
 
-
+##
 ## Database Design
 
 ### Core Entities
