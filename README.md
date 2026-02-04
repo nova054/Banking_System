@@ -44,6 +44,30 @@ The system provides a complete backend solution for core banking operations incl
 - **Database Optimization**: Strategic indexing for performance-critical queries
 - **DTO Pattern**: Clean data transfer with proper separation of concerns
 
+## 🚀 Quick Start & API Testing
+
+**📋 Complete API Testing Guide**: [API_DEMO_DATA.md](./API_DEMO_DATA.md)
+
+For immediate API testing and examples, refer to the comprehensive API documentation that includes:
+- All endpoint specifications with curl commands
+- Authentication flows and JWT token usage
+- Request/response examples for every API
+- Complete testing workflow
+
+**Quick Test Commands**:
+```bash
+# Start the application
+mvn spring-boot:run
+
+# Test user registration
+curl -X POST http://localhost:8081/api/auth/register \
+  -H "Content-Type: application/json" \
+  -d '{"fullName":"Test User","email":"test@example.com","password":"Test123!","confirmPassword":"Test123!"}'
+
+# Access Swagger UI
+open http://localhost:8081/swagger-ui.html
+```
+
 ## Tech Stack
 
 - **Java 17**: Modern Java with enhanced performance and security features
@@ -192,12 +216,20 @@ The system includes comprehensive API documentation accessible via Swagger UI:
 3. Enter `Bearer <JWT_TOKEN>` in the value field
 4. Click "Authorize" to authenticate for protected endpoints
 
-### Postman Testing
-The system includes comprehensive API documentation in `API_DEMO_DATA.md` with:
-- **Authentication Examples**: Login and registration request formats
-- **Endpoint Documentation**: Complete API endpoint specifications
-- **Request Examples**: Sample requests for all major operations
-- **Response Formats**: Expected response structures and status codes
+### Complete API Testing Guide
+
+📋 **All API testing data and examples are available in [API_DEMO_DATA.md](./API_DEMO_DATA.md)**
+
+This comprehensive guide includes:
+- **🔐 Authentication Examples**: Login and registration request formats
+- **📡 Complete Endpoint Documentation**: All 9 controllers with detailed specifications
+- **💻 Request Examples**: Ready-to-use curl commands for every endpoint
+- **📄 Response Formats**: Expected JSON structures and HTTP status codes
+- **🔍 Enum References**: All valid values for status codes, types, and actions
+- **⚡ Quick Test Sequence**: Step-by-step testing workflow
+- **🛠️ Testing Tips**: Best practices and troubleshooting
+
+**Click here to view complete API documentation**: [API_DEMO_DATA.md](./API_DEMO_DATA.md)
 
 ## Database Design
 
