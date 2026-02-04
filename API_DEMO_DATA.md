@@ -35,7 +35,7 @@ Content-Type: application/json
 
 ## 2. User APIs
 
-### GET /api/user/profile
+### GET /api/user/getUserData
 **Description:** Get current user profile
 **Headers:** `Authorization: Bearer <token>`
 **Response:**
@@ -45,16 +45,10 @@ Content-Type: application/json
   "fullName": "John Doe",
   "email": "john.doe@example.com",
   "role": "USER",
-  "createdAt": "2026-01-26T10:30:00"
-}
-```
-
-### PUT /api/user/profile
-**Description:** Update user profile
-```json
-{
-  "fullName": "John Updated",
-  "email": "john.updated@example.com"
+  "status": "ACTIVE",
+  "isActive": true,
+  "createdAt": "2026-01-26T10:30:00",
+  "lastLoginAt": "2026-01-26T15:30:00"
 }
 ```
 
@@ -62,30 +56,26 @@ Content-Type: application/json
 
 ## 3. Account APIs
 
-### GET /api/account
+### GET /api/account/user
 **Description:** Get all accounts for current user
+**Headers:** `Authorization: Bearer <token>`
 **Response:**
 ```json
-{
-  "content": [
-    {
-      "id": 1,
-      "accountNumber": "ACC-2026-000001",
-      "accountType": "SAVING",
-      "balance": 5000.00,
-      "status": "OPEN",
-      "createdAt": "2026-01-26T10:30:00"
-    }
-  ],
-  "pageable": {
-    "page": 0,
-    "size": 10
+[
+  {
+    "id": 1,
+    "accountNumber": "ACC-2026-000001",
+    "accountType": "SAVING",
+    "balance": 5000.00,
+    "status": "OPEN",
+    "createdAt": "2026-01-26T10:30:00"
   }
-}
+]
 ```
 
-### POST /api/account/create
+### POST /api/account
 **Description:** Create new account
+**Headers:** `Authorization: Bearer <token>`
 ```json
 {
   "accountType": "CURRENT",
@@ -93,8 +83,10 @@ Content-Type: application/json
 }
 ```
 
-### GET /api/account/{accountId}
-**Description:** Get account by ID
+### GET /api/account/number/{accountNumber}
+**Description:** Get account by account number
+**Headers:** `Authorization: Bearer <token>`
+**Path Variable:** `accountNumber` (e.g., "ACC-2026-000001")
 **Response:**
 ```json
 {
@@ -103,11 +95,6 @@ Content-Type: application/json
   "accountType": "SAVING",
   "balance": 5000.00,
   "status": "OPEN",
-  "user": {
-    "id": 1,
-    "fullName": "John Doe",
-    "email": "john.doe@example.com"
-  },
   "createdAt": "2026-01-26T10:30:00"
 }
 ```
@@ -118,6 +105,7 @@ Content-Type: application/json
 
 ### POST /api/transaction/deposit
 **Description:** Deposit money to account
+**Headers:** `Authorization: Bearer <token>`
 ```json
 {
   "accountNumber": "ACC-2026-000001",
@@ -128,6 +116,7 @@ Content-Type: application/json
 
 ### POST /api/transaction/withdraw
 **Description:** Withdraw money from account
+**Headers:** `Authorization: Bearer <token>`
 ```json
 {
   "accountNumber": "ACC-2026-000001",
@@ -138,6 +127,7 @@ Content-Type: application/json
 
 ### POST /api/transaction/transfer
 **Description:** Transfer money between accounts
+**Headers:** `Authorization: Bearer <token>`
 ```json
 {
   "fromAccountNumber": "ACC-2026-000001",
@@ -149,16 +139,39 @@ Content-Type: application/json
 
 ### POST /api/transaction/statement
 **Description:** Get account statement
+**Headers:** `Authorization: Bearer <token>`
 ```json
 {
   "accountNumber": "ACC-2026-000001",
-  "fromDate": "2026-01-01",
-  "toDate": "2026-01-26",
+  "fromDate": "2026-01-01T00:00:00",
+  "toDate": "2026-01-26T23:59:59",
   "minAmount": 0,
   "maxAmount": 10000
 }
 ```
 **Query Parameters:** `?page=0&size=20&sort=createdAt,desc`
+**Response:**
+```json
+{
+  "content": [
+    {
+      "id": 1,
+      "referenceNumber": "REF-123456",
+      "type": "DEPOSIT",
+      "amount": 500.00,
+      "status": "SUCCESS",
+      "beforeAmount": 4500.00,
+      "remainingAmount": 5000.00,
+      "description": "Salary deposit",
+      "createdAt": "2026-01-26T10:30:00"
+    }
+  ],
+  "pageable": {
+    "page": 0,
+    "size": 20
+  }
+}
+```
 
 ---
 
@@ -333,14 +346,41 @@ Content-Type: application/json
 
 ### GET /api/admin/audits
 **Description:** Get all audit logs (paginated)
+**Headers:** `Authorization: Bearer <admin_token>`
+**Query Parameters:** `?page=0&size=20&sort=createdAt,desc`
+**Response:**
+```json
+{
+  "content": [
+    {
+      "id": 1,
+      "auditAction": "LOGIN",
+      "entityType": "USER",
+      "entityId": 1,
+      "performedBy": "admin@example.com",
+      "role": "ADMIN",
+      "ipAddress": "192.168.1.100",
+      "status": "SUCCESS",
+      "description": "User login successful",
+      "userAgent": "Mozilla/5.0...",
+      "createdAt": "2026-01-26T10:30:00"
+    }
+  ],
+  "pageable": {
+    "page": 0,
+    "size": 20
+  }
+}
+```
 
 ### POST /api/admin/audits/filters
 **Description:** Filter audit logs
+**Headers:** `Authorization: Bearer <admin_token>`
 ```json
 {
   "userEmail": "admin@example.com",
-  "action": "DEPOSIT",
-  "entityType": "TRANSACTION",
+  "action": "LOGIN",
+  "entityType": "USER",
   "fromDate": "2026-01-01T00:00:00",
   "toDate": "2026-01-26T23:59:59"
 }
@@ -430,9 +470,44 @@ All errors follow this format:
 
 1. **Login First:** Get JWT token from `/api/auth/login`
 2. **Use Admin Token:** For admin endpoints, login with admin credentials
-3. **Pagination:** Use `page`, `size`, `sort` query parameters for paginated endpoints
-4. **Date Format:** Use ISO format `YYYY-MM-DD` for dates, `YYYY-MM-DDTHH:mm:ss` for datetime
-5. **Validation:** All `@Valid` annotated endpoints will return 400 for invalid data
+3. **Server Port:** Application runs on port **8081** (not 8080)
+4. **Base URL:** http://localhost:8081/api
+5. **Pagination:** Use `page`, `size`, `sort` query parameters for paginated endpoints
+6. **Date Format:** Use ISO format `YYYY-MM-DDTHH:mm:ss` for datetime fields
+7. **Validation:** All `@Valid` annotated endpoints will return 400 for invalid data
+8. **Authentication:** Include `Authorization: Bearer <token>` header for protected endpoints
+
+### Quick Test Sequence
+
+1. **Register User:**
+   ```bash
+   curl -X POST http://localhost:8081/api/auth/register \
+     -H "Content-Type: application/json" \
+     -d '{"fullName":"Test User","email":"test@example.com","password":"Test123!","confirmPassword":"Test123!"}'
+   ```
+
+2. **Login:**
+   ```bash
+   curl -X POST http://localhost:8081/api/auth/login \
+     -H "Content-Type: application/json" \
+     -d '{"email":"test@example.com","password":"Test123!"}'
+   ```
+
+3. **Create Account:**
+   ```bash
+   curl -X POST http://localhost:8081/api/account \
+     -H "Content-Type: application/json" \
+     -H "Authorization: Bearer <JWT_TOKEN>" \
+     -d '{"accountType":"SAVING","initialDeposit":1000}'
+   ```
+
+4. **Deposit:**
+   ```bash
+   curl -X POST http://localhost:8081/api/transaction/deposit \
+     -H "Content-Type: application/json" \
+     -H "Authorization: Bearer <JWT_TOKEN>" \
+     -d '{"accountNumber":"ACC-2026-000001","amount":500,"description":"Test deposit"}'
+   ```
 
 ---
 
