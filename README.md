@@ -244,18 +244,7 @@ The system includes comprehensive API documentation accessible via Swagger UI:
 
 📋 **All API testing data and examples are available in [API_DEMO_DATA.md](./API_DEMO_DATA.md)**
 
-This comprehensive guide includes:
-- **🔐 Authentication Examples**: Login and registration request formats
-- **📡 Complete Endpoint Documentation**: All 9 controllers with detailed specifications
-- **💻 Request Examples**: Ready-to-use curl commands for every endpoint
-- **📄 Response Formats**: Expected JSON structures and HTTP status codes
-- **🔍 Enum References**: All valid values for status codes, types, and actions
-- **⚡ Quick Test Sequence**: Step-by-step testing workflow
-- **🛠️ Testing Tips**: Best practices and troubleshooting
-
-**Click here to view complete API documentation**: [API_DEMO_DATA.md](./API_DEMO_DATA.md)
-
-# API Demo Screenshots
+## API Demo Screenshots
 
 ## Authentication – Login & JWT Token
 ![Login Response](images/login-token.png)
