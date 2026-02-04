@@ -36,7 +36,7 @@ The system provides a complete backend solution for core banking operations incl
 - **Account Oversight**: Complete visibility into all system accounts with advanced filtering
 - **Transaction Monitoring**: System-wide transaction monitoring with comprehensive search capabilities
 - **Dashboard Analytics**: Real-time statistics on users, accounts, and transactions
-- **Security Controls**: User lock/unlock capabilities and password reset functionality
+- **Security Controls**: User and Account lock/unlock capabilities and password reset functionality
 
 ### Data Management
 - **Pagination & Sorting**: Efficient data retrieval with configurable page sizes
@@ -290,12 +290,9 @@ spring.jpa.show-sql=true
 spring.jpa.database-platform=org.hibernate.community.dialect.Oracle10gDialect
 
 # JWT Configuration
-jwt.secret=yQxZJ5eP9k9Yv7JXG7xYxM9W+3f3P8m4Ew9R7Zp9T6ZJZcQ1Y=
+jwt.secret= #Secret Key
 jwt.expiration=3600000  # 1 hour in milliseconds
 
-# Spring Security (for basic endpoints)
-spring.security.user.name=user
-spring.security.user.password=root
 ```
 
 **Important**: Update the database credentials and JWT secret for production environments.
@@ -343,7 +340,7 @@ spring.security.user.password=root
 #### 1. Clone and Build
 ```bash
 # Clone the repository
-git clone <repository-url>
+git clone <https://github.com/nova054/Banking_System>
 cd banking-system-api
 
 # Verify Java version
@@ -491,35 +488,5 @@ logging.level.webapp.bankingsystemapi=DEBUG
 - **Data Export**: CSV/PDF export for financial statements
 - **Backup Automation**: Automated database backup and recovery
 - **Disaster Recovery**: Multi-region deployment for high availability
-
-## Why This Project Matters
-
-### Technical Excellence
-This project demonstrates advanced backend engineering capabilities including:
-- **Enterprise Architecture**: Clean, scalable, and maintainable code structure
-- **Security Implementation**: Production-grade security with comprehensive protection
-- **Database Design**: Optimized schema design with performance considerations
-- **API Design**: RESTful principles with proper HTTP semantics and error handling
-
-### Banking Domain Expertise
-The system showcases understanding of banking industry requirements:
-- **Regulatory Compliance**: Audit trails and security controls essential for financial systems
-- **Transaction Integrity**: Atomic operations and proper financial data handling
-- **Risk Management**: Security controls and fraud prevention mechanisms
-- **User Experience**: Balance between security and usability in financial applications
-
-### Production Readiness
-This project is suitable for production environments because it:
-- **Handles Edge Cases**: Comprehensive error handling and validation
-- **Scales Efficiently**: Optimized queries and proper resource management
-- **Maintains Security**: Multiple layers of security protection
-- **Provides Observability**: Comprehensive logging and monitoring capabilities
-
-### Career Impact
-This backend system demonstrates the skills required for senior backend roles:
-- **Spring Boot Mastery**: Advanced framework usage and configuration
-- **Security Implementation**: Practical security implementation in enterprise applications
-- **Database Expertise**: Complex query design and optimization
-- **System Design**: Understanding of scalable, maintainable architecture patterns
 
 This Banking System API represents a complete, production-ready backend solution that addresses real-world banking requirements while showcasing advanced software engineering principles and best practices.
