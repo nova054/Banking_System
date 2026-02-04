@@ -88,7 +88,7 @@ The system follows a clean, layered architecture pattern:
                      ┌────────────┐
                      │   Client    │
                      └─────┬──────┘
-                              │ JWT
+                             │ JWT
                      ┌─────▼──────┐
                      │ JWT Filter  │
                      └─────┬──────┘
