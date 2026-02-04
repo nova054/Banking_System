@@ -470,12 +470,11 @@ All errors follow this format:
 
 1. **Login First:** Get JWT token from `/api/auth/login`
 2. **Use Admin Token:** For admin endpoints, login with admin credentials
-3. **Server Port:** Application runs on port **8081** (not 8080)
-4. **Base URL:** http://localhost:8081/api
-5. **Pagination:** Use `page`, `size`, `sort` query parameters for paginated endpoints
-6. **Date Format:** Use ISO format `YYYY-MM-DDTHH:mm:ss` for datetime fields
-7. **Validation:** All `@Valid` annotated endpoints will return 400 for invalid data
-8. **Authentication:** Include `Authorization: Bearer <token>` header for protected endpoints
+3. **Base URL:** http://localhost:8081/
+4. **Pagination:** Use `page`, `size`, `sort` query parameters for paginated endpoints
+5. **Date Format:** Use ISO format `YYYY-MM-DDTHH:mm:ss` for datetime fields
+6. **Validation:** All `@Valid` annotated endpoints will return 400 for invalid data
+7. **Authentication:** Include `Authorization: Bearer <token>` header for protected endpoints
 
 ### Quick Test Sequence
 
@@ -483,7 +482,12 @@ All errors follow this format:
    ```bash
    curl -X POST http://localhost:8081/api/auth/register \
      -H "Content-Type: application/json" \
-     -d '{"fullName":"Test User","email":"test@example.com","password":"Test123!","confirmPassword":"Test123!"}'
+     -d '{
+      "fullName":"Test User",
+      "email":"test@example.com",
+      "password":"Test123!",
+      "confirmPassword":"Test123!"
+   }'
    ```
 
 2. **Login:**
@@ -511,11 +515,3 @@ All errors follow this format:
 
 ---
 
-## 9. Default Admin Credentials (for testing)
-
-```
-Email: admin@example.com
-Password: admin123
-```
-
-*Note: These credentials should be changed in production environment.*
