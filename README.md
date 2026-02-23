@@ -8,7 +8,7 @@ This Banking System API addresses the critical need for a secure, reliable, and 
 
 The system provides a complete backend solution for core banking operations including user authentication, account management, transaction processing, and administrative oversight. Built with enterprise-grade architecture patterns, it ensures data integrity, transaction safety, and comprehensive audit trails essential for financial operations. The API-first design enables seamless integration with various frontend applications while maintaining strict security boundaries.
 
-+7This project was designed incrementally with production trade-offs in mind rather than as a feature-complete demo system.
+This project was designed incrementally with production trade-offs in mind rather than as a feature-complete demo system.
 
 ## Key Features
 
@@ -67,6 +67,17 @@ curl -X POST http://localhost:8081/api/auth/register \
 
 # Access Swagger UI
 open http://localhost:8081/swagger-ui.html
+```
+# 🧪 Postman Collection
+
+A ready-to-use Postman collection is available for quick API testing.
+
+📁 Download here:
+[Banking System API - Postman Collection](./postman/Banking-System-API.postman_collection.json)
+
+### How to Use:
+1. Import the collection into Postman
+2. Set `baseUrl` variable to:  http://localhost:8081
 ```
 
 ## Tech Stack

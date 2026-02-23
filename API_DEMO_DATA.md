@@ -1,5 +1,8 @@
 # Banking System API - Demo Data & Endpoints
 
+This document contains complete demo data and example requests for testing the Banking System API.
+All endpoints assume the application is running at http://localhost:8081.
+
 ## Authentication Headers
 All requests (except login/register) require:
 ```
