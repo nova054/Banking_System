@@ -78,7 +78,7 @@ A ready-to-use Postman collection is available for quick API testing.
 ### How to Use:
 1. Import the collection into Postman
 2. Set `baseUrl` variable to:  http://localhost:8081
-```
+```bash
 
 ## Tech Stack
 
