@@ -7,7 +7,8 @@ A production-grade, secure, and scalable banking system backend built with Java 
 This Banking System API addresses the critical need for a secure, reliable, and auditable backend infrastructure in modern banking environments. In an era where digital banking is the norm, financial institutions require robust systems that can handle sensitive transactions while maintaining strict security protocols and regulatory compliance.
 
 The system provides a complete backend solution for core banking operations including user authentication, account management, transaction processing, and administrative oversight. Built with enterprise-grade architecture patterns, it ensures data integrity, transaction safety, and comprehensive audit trails essential for financial operations. The API-first design enables seamless integration with various frontend applications while maintaining strict security boundaries.
-This project was designed incrementally with production trade-offs in mind rather than as a feature-complete demo system.
+
++7This project was designed incrementally with production trade-offs in mind rather than as a feature-complete demo system.
 
 ## Key Features
 
@@ -86,27 +87,27 @@ open http://localhost:8081/swagger-ui.html
 The system follows a clean, layered architecture pattern:
 ```
                      ┌────────────┐
-                     │     Client     │
+                     │  Client    │
                      └─────┬──────┘
-                             │ JWT
+                           │ JWT
                      ┌─────▼──────┐
-                     │    JWT Filter  │
+                     │JWT Filter  │
                      └─────┬──────┘
-                             │ SecurityContext
+                           │ SecurityContext
                      ┌─────▼──────┐
-                     │    Controller  │
+                     | Controller │
                      └─────┬──────┘
-                             │ DTO
+                           │ DTO
                      ┌─────▼──────┐
-                     │     Service    │───► Audit Service
+                     │ Service    │───► Audit Service
                      └─────┬──────┘
-                             │ JPA
+                           │ JPA
                      ┌─────▼──────┐
-                     │    Repository  │
+                     │Repository  │
                      └─────┬──────┘
-                             │
+                           │
                      ┌─────▼──────┐
-                     │     Database   │
+                     │ Database   │
                      └────────────┘
 
 ```
@@ -248,9 +249,6 @@ The system includes comprehensive API documentation accessible via Swagger UI:
 
 ## Authentication – Login & JWT Token
 ![Login Response](images/login-token.png)
-
-## Swagger Authorization with JWT
-![Swagger Auth](images/swagger-auth.png)
 
 ## Create Bank Account (Authenticated)
 ![Create Account](images/create-account.png)
