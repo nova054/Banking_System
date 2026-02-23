@@ -1,0 +1,2831 @@
+{
+  "info": {
+    "_postman_id": "44a610aa-e8f2-4350-a437-e995fbe23595",
+    "name": "BANKING SYSTEM",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "45830389",
+    "_collection_link": "https://go.postman.co/collection/45830389-44a610aa-e8f2-4350-a437-e995fbe23595?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "api",
+      "item": [
+        {
+          "name": "transaction",
+          "item": [
+            {
+              "name": "withdraw",
+              "item": [
+                {
+                  "name": "withdraw",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"accountNumber\": \"ACC-2026-0000XX\",\n  \"amount\": 44,\n  \"description\": \"TEST\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/transaction/withdraw",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "transaction",
+                        "withdraw"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"accountNumber\": \"string\",\n  \"amount\": 4452.7106293413635,\n  \"description\": \"string\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/transaction/withdraw",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "transaction",
+                            "withdraw"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"referenceNumber\": \"string\",\n  \"type\": \"TRANSFER_DEBIT\",\n  \"amount\": 4301.095916532647,\n  \"status\": \"INITIATED\",\n  \"beforeBalance\": 6483.035856522552,\n  \"afterBalance\": 5617.765441035854,\n  \"description\": \"string\",\n  \"createdAt\": \"2011-02-20T18:27:19.856Z\"\n}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "transfer",
+              "item": [
+                {
+                  "name": "transfer",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"fromAccountNumber\": \"string\",\n  \"toAccountNumber\": \"string\",\n  \"amount\": 7526.378949298367,\n  \"description\": \"string\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/transaction/transfer",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "transaction",
+                        "transfer"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"fromAccountNumber\": \"string\",\n  \"toAccountNumber\": \"string\",\n  \"amount\": 7526.378949298367,\n  \"description\": \"string\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/transaction/transfer",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "transaction",
+                            "transfer"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"toAccountNumber\": \"string\",\n  \"fromAccountNumber\": \"string\",\n  \"debitReferenceNumber\": \"string\",\n  \"creditReferenceNumber\": \"string\",\n  \"amount\": 4697.094408023212,\n  \"remainingAmount\": 6381.992561606767,\n  \"beforeAmount\": 5093.223485824312,\n  \"status\": \"SUCCESS\",\n  \"description\": \"string\",\n  \"createdAt\": \"1966-04-28T23:46:45.746Z\"\n}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "statement",
+              "item": [
+                {
+                  "name": "get Statement",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n    \"accountNumber\": \"string\",\n    \"fromDate\": \"2026-01-10\",\n    \"toDate\": \"2026-11-06\",\n    \"minAmount\": 2217.456823638766,\n    \"maxAmount\": 1077.7771043901053\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/transaction/statement",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "transaction",
+                        "statement"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"request\": {\n    \"accountNumber\": \"string\",\n    \"fromDate\": \"1947-02-10\",\n    \"toDate\": \"1987-11-06\",\n    \"minAmount\": 2217.456823638766,\n    \"maxAmount\": 1077.7771043901053\n  },\n  \"pageable\": {\n    \"page\": 7420,\n    \"size\": 1234,\n    \"sort\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/transaction/statement",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "transaction",
+                            "statement"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"totalElements\": 8666,\n  \"totalPages\": 8998,\n  \"numberOfElements\": 1850,\n  \"size\": 5512,\n  \"content\": [\n    {\n      \"referenceNumber\": \"string\",\n      \"type\": \"TRANSFER_CREDIT\",\n      \"amount\": 9772.505527487574,\n      \"status\": \"SUCCESS\",\n      \"beforeBalance\": 3326.910434241579,\n      \"afterBalance\": 7918.6550675199305,\n      \"description\": \"string\",\n      \"createdAt\": \"1963-06-21T17:46:08.457Z\"\n    },\n    {\n      \"referenceNumber\": \"string\",\n      \"type\": \"TRANSFER_CREDIT\",\n      \"amount\": 2176.7167394050934,\n      \"status\": \"PENDING\",\n      \"beforeBalance\": 3526.443866715696,\n      \"afterBalance\": 8816.93485123148,\n      \"description\": \"string\",\n      \"createdAt\": \"1976-08-08T23:53:39.646Z\"\n    }\n  ],\n  \"number\": 6562,\n  \"sort\": {\n    \"empty\": false,\n    \"sorted\": false,\n    \"unsorted\": false\n  },\n  \"first\": true,\n  \"last\": true,\n  \"pageable\": {\n    \"offset\": 7345,\n    \"sort\": {\n      \"empty\": true,\n      \"sorted\": true,\n      \"unsorted\": false\n    },\n    \"pageSize\": 157,\n    \"pageNumber\": 4799,\n    \"paged\": false,\n    \"unpaged\": false\n  },\n  \"empty\": false\n}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "deposit",
+              "item": [
+                {
+                  "name": "deposit",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"accountNumber\": \"ACC-2026-0000XX\",\n  \"amount\": 4452.7106293413635,\n  \"description\": \"TEST_AFTER_VALIDATION\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/transaction/deposit",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "transaction",
+                        "deposit"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"accountNumber\": \"string\",\n  \"amount\": 4452.7106293413635,\n  \"description\": \"string\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/transaction/deposit",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "transaction",
+                            "deposit"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"referenceNumber\": \"string\",\n  \"type\": \"TRANSFER_DEBIT\",\n  \"amount\": 4301.095916532647,\n  \"status\": \"INITIATED\",\n  \"beforeBalance\": 6483.035856522552,\n  \"afterBalance\": 5617.765441035854,\n  \"description\": \"string\",\n  \"createdAt\": \"2011-02-20T18:27:19.856Z\"\n}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "auth",
+          "item": [
+            {
+              "name": "register",
+              "item": [
+                {
+                  "name": "register",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"email\": \"demotest@gmail.com\",\n  \"fullName\": \"Demo\",\n  \"password\": \"Password123\",\n  \"confirmPassword\": \"Password123\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/auth/register",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "auth",
+                        "register"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"confirmPassword\": \"string\",\n  \"email\": \"string\",\n  \"fullName\": \"string\",\n  \"password\": \"string\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/auth/register",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "auth",
+                            "register"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"token\": \"string\",\n  \"email\": \"string\",\n  \"fullName\": \"string\",\n  \"createdAt\": \"2014-08-16T21:17:30.370Z\"\n}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "login",
+              "item": [
+                {
+                  "name": "login",
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"email\": \"demo123@gmail.com\",\n  \"password\": \"demo123@\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/auth/login",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "auth",
+                        "login"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"email\": \"string\",\n  \"password\": \"string\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/auth/login",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "auth",
+                            "login"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"token\": \"string\",\n  \"email\": \"string\",\n  \"fullName\": \"string\",\n  \"createdAt\": \"2014-08-16T21:17:30.370Z\"\n}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "admin",
+          "item": [
+            {
+              "name": "user",
+              "item": [
+                {
+                  "name": "register",
+                  "item": [
+                    {
+                      "name": "register User",
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"confirmPassword\": \"string\",\n  \"email\": \"string\",\n  \"fullName\": \"string\",\n  \"password\": \"string\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/admin/user/register",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "admin",
+                            "user",
+                            "register"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"confirmPassword\": \"string\",\n  \"email\": \"string\",\n  \"fullName\": \"string\",\n  \"password\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/admin/user/register",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "admin",
+                                "user",
+                                "register"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"id\": 4485,\n  \"fullName\": \"string\",\n  \"email\": \"string\",\n  \"role\": \"string\",\n  \"status\": \"ACTIVE\",\n  \"lastLoginAt\": \"2020-09-22T20:02:17.586Z\",\n  \"createdAt\": \"2022-10-25T22:09:21.368Z\",\n  \"active\": true\n}"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "filter",
+                  "item": [
+                    {
+                      "name": "filter Users",
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"fullName\": \"string\",\n    \"email\": \"string\",\n    \"role\": \"ADMIN\",\n    \"isActive\": false,\n    \"status\": \"SUSPENDED\",  //ACTIVE OR INACTIVE OR SUSPENDED\n    \"fromDate\": \"1982-12-28T02:49:05.264Z\",\n    \"toDate\": \"2025-03-12T01:16:27.551Z\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/admin/user/filter",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "admin",
+                            "user",
+                            "filter"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"request\": {\n    \"fullName\": \"string\",\n    \"email\": \"string\",\n    \"role\": \"ADMIN\",\n    \"isActive\": false,\n    \"status\": \"SUSPENDED\",\n    \"fromDate\": \"1982-12-28T02:49:05.264Z\",\n    \"toDate\": \"2025-03-12T01:16:27.551Z\"\n  },\n  \"pageable\": {\n    \"page\": 4871,\n    \"size\": 3027,\n    \"sort\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/admin/user/filter",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "admin",
+                                "user",
+                                "filter"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"totalElements\": 8124,\n  \"totalPages\": 6549,\n  \"numberOfElements\": 5172,\n  \"size\": 6635,\n  \"content\": [\n    {\n      \"id\": 9468,\n      \"fullName\": \"string\",\n      \"email\": \"string\",\n      \"role\": \"string\",\n      \"status\": \"INACTIVE\",\n      \"lastLoginAt\": \"1964-08-31T21:43:12.011Z\",\n      \"createdAt\": \"1995-09-11T19:49:43.133Z\",\n      \"active\": false\n    },\n    {\n      \"id\": 2309,\n      \"fullName\": \"string\",\n      \"email\": \"string\",\n      \"role\": \"string\",\n      \"status\": \"INACTIVE\",\n      \"lastLoginAt\": \"2023-09-05T12:05:03.378Z\",\n      \"createdAt\": \"1951-01-29T01:57:42.345Z\",\n      \"active\": true\n    }\n  ],\n  \"number\": 9766,\n  \"sort\": {\n    \"empty\": false,\n    \"sorted\": false,\n    \"unsorted\": false\n  },\n  \"first\": false,\n  \"last\": true,\n  \"pageable\": {\n    \"offset\": 5462,\n    \"sort\": {\n      \"empty\": false,\n      \"sorted\": false,\n      \"unsorted\": false\n    },\n    \"pageSize\": 632,\n    \"pageNumber\": 6157,\n    \"paged\": true,\n    \"unpaged\": true\n  },\n  \"empty\": true\n}"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "resetPassword",
+                  "item": [
+                    {
+                      "name": "reset Password",
+                      "request": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"email\": \"string\",\n  \"password\": \"string\",\n  \"confirmPassword\": \"string\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/admin/user/resetPassword",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "admin",
+                            "user",
+                            "resetPassword"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"confirmPassword\": \"string\",\n  \"email\": \"string\",\n  \"password\": \"string\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/admin/user/resetPassword",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "admin",
+                                "user",
+                                "resetPassword"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "body": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "{userId}",
+                  "item": [
+                    {
+                      "name": "get User By Id",
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/admin/user/:userId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "admin",
+                            "user",
+                            ":userId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "userId",
+                              "value": "28"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/admin/user/:userId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "admin",
+                                "user",
+                                ":userId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "userId",
+                                  "value": "286"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"id\": 4485,\n  \"fullName\": \"string\",\n  \"email\": \"string\",\n  \"role\": \"string\",\n  \"status\": \"ACTIVE\",\n  \"lastLoginAt\": \"2020-09-22T20:02:17.586Z\",\n  \"createdAt\": \"2022-10-25T22:09:21.368Z\",\n  \"active\": true\n}"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "enable",
+                  "item": [
+                    {
+                      "name": "{id}",
+                      "item": [
+                        {
+                          "name": "enable User",
+                          "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/admin/user/enable/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "admin",
+                                "user",
+                                "enable",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id",
+                                  "value": "11"
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/admin/user/enable/:id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "admin",
+                                    "user",
+                                    "enable",
+                                    ":id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id",
+                                      "value": "286"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "body": ""
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "email",
+                  "item": [
+                    {
+                      "name": "get By Email",
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/admin/user/email?email=demo123@gmail.com",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "admin",
+                            "user",
+                            "email"
+                          ],
+                          "query": [
+                            {
+                              "key": "email",
+                              "value": "demo123@gmail.com"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/admin/user/email?email=string",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "admin",
+                                "user",
+                                "email"
+                              ],
+                              "query": [
+                                {
+                                  "key": "email",
+                                  "value": "string"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"id\": 4485,\n  \"fullName\": \"string\",\n  \"email\": \"string\",\n  \"role\": \"string\",\n  \"status\": \"ACTIVE\",\n  \"lastLoginAt\": \"2020-09-22T20:02:17.586Z\",\n  \"createdAt\": \"2022-10-25T22:09:21.368Z\",\n  \"active\": true\n}"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "disable",
+                  "item": [
+                    {
+                      "name": "{id}",
+                      "item": [
+                        {
+                          "name": "disable User",
+                          "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/admin/user/disable/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "admin",
+                                "user",
+                                "disable",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id",
+                                  "value": "286"
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/admin/user/disable/:id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "admin",
+                                    "user",
+                                    "disable",
+                                    ":id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id",
+                                      "value": "286"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "body": ""
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "get All Users",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/admin/user",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "admin",
+                        "user"
+                      ],
+                      "query": [
+                        {
+                          "key": "page",
+                          "value": "6241",
+                          "disabled": true
+                        },
+                        {
+                          "key": "size",
+                          "value": "20",
+                          "disabled": true
+                        },
+                        {
+                          "key": "sort",
+                          "value": "createdAt,desc",
+                          "disabled": true
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/admin/user?page=6241&size=7175&sort=string,string",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "admin",
+                            "user"
+                          ],
+                          "query": [
+                            {
+                              "key": "page",
+                              "value": "6241"
+                            },
+                            {
+                              "key": "size",
+                              "value": "7175"
+                            },
+                            {
+                              "key": "sort",
+                              "value": "string,string"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"totalElements\": 8124,\n  \"totalPages\": 6549,\n  \"numberOfElements\": 5172,\n  \"size\": 6635,\n  \"content\": [\n    {\n      \"id\": 9468,\n      \"fullName\": \"string\",\n      \"email\": \"string\",\n      \"role\": \"string\",\n      \"status\": \"INACTIVE\",\n      \"lastLoginAt\": \"1964-08-31T21:43:12.011Z\",\n      \"createdAt\": \"1995-09-11T19:49:43.133Z\",\n      \"active\": false\n    },\n    {\n      \"id\": 2309,\n      \"fullName\": \"string\",\n      \"email\": \"string\",\n      \"role\": \"string\",\n      \"status\": \"INACTIVE\",\n      \"lastLoginAt\": \"2023-09-05T12:05:03.378Z\",\n      \"createdAt\": \"1951-01-29T01:57:42.345Z\",\n      \"active\": true\n    }\n  ],\n  \"number\": 9766,\n  \"sort\": {\n    \"empty\": false,\n    \"sorted\": false,\n    \"unsorted\": false\n  },\n  \"first\": false,\n  \"last\": true,\n  \"pageable\": {\n    \"offset\": 5462,\n    \"sort\": {\n      \"empty\": false,\n      \"sorted\": false,\n      \"unsorted\": false\n    },\n    \"pageSize\": 632,\n    \"pageNumber\": 6157,\n    \"paged\": true,\n    \"unpaged\": true\n  },\n  \"empty\": true\n}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "transaction",
+              "item": [
+                {
+                  "name": "filter",
+                  "item": [
+                    {
+                      "name": "filter Transaction",
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"accountNumber\": \"string\",\n    \"userEmail\": \"string\",\n    \"type\": \"WITHDRAW\",\n    \"status\": \"PENDING\",\n    \"fromDate\": \"2014-02-05T22:33:53.350Z\",\n    \"toDate\": \"1961-07-10T17:58:40.438Z\",\n    \"minAmount\": 9362.435422116236,\n    \"maxAmount\": 5691.315621456576\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/admin/transaction/filter",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "admin",
+                            "transaction",
+                            "filter"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"request\": {\n    \"accountNumber\": \"string\",\n    \"userEmail\": \"string\",\n    \"type\": \"WITHDRAW\",\n    \"status\": \"PENDING\",\n    \"fromDate\": \"2014-02-05T22:33:53.350Z\",\n    \"toDate\": \"1961-07-10T17:58:40.438Z\",\n    \"minAmount\": 9362.435422116236,\n    \"maxAmount\": 5691.315621456576\n  },\n  \"pageable\": {\n    \"page\": 3204,\n    \"size\": 2665,\n    \"sort\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/admin/transaction/filter",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "admin",
+                                "transaction",
+                                "filter"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"totalElements\": 9978,\n  \"totalPages\": 8219,\n  \"numberOfElements\": 6268,\n  \"size\": 6502,\n  \"content\": [\n    {\n      \"id\": 9698,\n      \"referenceNumber\": \"string\",\n      \"type\": \"TRANSFER_DEBIT\",\n      \"amount\": 9239.647328372937,\n      \"status\": \"PENDING\",\n      \"beforeBalance\": 8517.879417664006,\n      \"afterBalance\": 9237.331948591913,\n      \"description\": \"string\",\n      \"createdAt\": \"1981-10-25T02:41:22.369Z\",\n      \"accountNumber\": \"string\",\n      \"transferId\": \"string\"\n    },\n    {\n      \"id\": 3231,\n      \"referenceNumber\": \"string\",\n      \"type\": \"DEPOSIT\",\n      \"amount\": 2287.1589352377564,\n      \"status\": \"SUCCESS\",\n      \"beforeBalance\": 3240.0474928554136,\n      \"afterBalance\": 6824.650642710086,\n      \"description\": \"string\",\n      \"createdAt\": \"1987-02-25T14:25:57.479Z\",\n      \"accountNumber\": \"string\",\n      \"transferId\": \"string\"\n    }\n  ],\n  \"number\": 5923,\n  \"sort\": {\n    \"empty\": true,\n    \"sorted\": false,\n    \"unsorted\": false\n  },\n  \"first\": false,\n  \"last\": false,\n  \"pageable\": {\n    \"offset\": 5393,\n    \"sort\": {\n      \"empty\": false,\n      \"sorted\": true,\n      \"unsorted\": false\n    },\n    \"pageSize\": 9882,\n    \"pageNumber\": 644,\n    \"paged\": false,\n    \"unpaged\": true\n  },\n  \"empty\": false\n}"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "{transactionId}",
+                  "item": [
+                    {
+                      "name": "get Transaction",
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/admin/transaction/:transactionId",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "admin",
+                            "transaction",
+                            ":transactionId"
+                          ],
+                          "variable": [
+                            {
+                              "key": "transactionId",
+                              "value": "28"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/admin/transaction/:transactionId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "admin",
+                                "transaction",
+                                ":transactionId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "transactionId",
+                                  "value": "286"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"id\": 2662,\n  \"referenceNumber\": \"string\",\n  \"type\": \"DEPOSIT\",\n  \"amount\": 1226.0860185690947,\n  \"status\": \"PENDING\",\n  \"beforeBalance\": 9298.99469817307,\n  \"afterBalance\": 3857.439663250053,\n  \"description\": \"string\",\n  \"createdAt\": \"1956-05-23T12:12:34.365Z\",\n  \"accountNumber\": \"string\",\n  \"transferId\": \"string\"\n}"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "get All Transaction",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/admin/transaction",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "admin",
+                        "transaction"
+                      ],
+                      "query": [
+                        {
+                          "key": "page",
+                          "value": "6241",
+                          "disabled": true
+                        },
+                        {
+                          "key": "size",
+                          "value": "7175",
+                          "disabled": true
+                        },
+                        {
+                          "key": "sort",
+                          "value": "string,string",
+                          "disabled": true
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/admin/transaction?page=6241&size=7175&sort=string,string",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "admin",
+                            "transaction"
+                          ],
+                          "query": [
+                            {
+                              "key": "page",
+                              "value": "6241"
+                            },
+                            {
+                              "key": "size",
+                              "value": "7175"
+                            },
+                            {
+                              "key": "sort",
+                              "value": "string,string"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"totalElements\": 9978,\n  \"totalPages\": 8219,\n  \"numberOfElements\": 6268,\n  \"size\": 6502,\n  \"content\": [\n    {\n      \"id\": 9698,\n      \"referenceNumber\": \"string\",\n      \"type\": \"TRANSFER_DEBIT\",\n      \"amount\": 9239.647328372937,\n      \"status\": \"PENDING\",\n      \"beforeBalance\": 8517.879417664006,\n      \"afterBalance\": 9237.331948591913,\n      \"description\": \"string\",\n      \"createdAt\": \"1981-10-25T02:41:22.369Z\",\n      \"accountNumber\": \"string\",\n      \"transferId\": \"string\"\n    },\n    {\n      \"id\": 3231,\n      \"referenceNumber\": \"string\",\n      \"type\": \"DEPOSIT\",\n      \"amount\": 2287.1589352377564,\n      \"status\": \"SUCCESS\",\n      \"beforeBalance\": 3240.0474928554136,\n      \"afterBalance\": 6824.650642710086,\n      \"description\": \"string\",\n      \"createdAt\": \"1987-02-25T14:25:57.479Z\",\n      \"accountNumber\": \"string\",\n      \"transferId\": \"string\"\n    }\n  ],\n  \"number\": 5923,\n  \"sort\": {\n    \"empty\": true,\n    \"sorted\": false,\n    \"unsorted\": false\n  },\n  \"first\": false,\n  \"last\": false,\n  \"pageable\": {\n    \"offset\": 5393,\n    \"sort\": {\n      \"empty\": false,\n      \"sorted\": true,\n      \"unsorted\": false\n    },\n    \"pageSize\": 9882,\n    \"pageNumber\": 644,\n    \"paged\": false,\n    \"unpaged\": true\n  },\n  \"empty\": false\n}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "audits",
+              "item": [
+                {
+                  "name": "filters",
+                  "item": [
+                    {
+                      "name": "filter Audits",
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n    \"userEmail\": \"string\",\n    \"action\": \"LOGIN\",\n    \"entityType\": \"ACCOUNT\",\n    \"fromDate\": \"1971-06-06T06:46:34.703Z\",\n    \"toDate\": \"1955-02-27T12:10:02.159Z\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/admin/audits/filters",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "admin",
+                            "audits",
+                            "filters"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"request\": {\n    \"userEmail\": \"string\",\n    \"action\": \"LOGIN\",\n    \"entityType\": \"ACCOUNT\",\n    \"fromDate\": \"1971-06-06T06:46:34.703Z\",\n    \"toDate\": \"1955-02-27T12:10:02.159Z\"\n  },\n  \"pageable\": {\n    \"page\": 8304,\n    \"size\": 525,\n    \"sort\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/admin/audits/filters",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "admin",
+                                "audits",
+                                "filters"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"totalElements\": 2294,\n  \"totalPages\": 7485,\n  \"numberOfElements\": 2474,\n  \"size\": 7260,\n  \"content\": [\n    {\n      \"id\": 3202,\n      \"userEmail\": \"string\",\n      \"action\": \"LOGIN\",\n      \"entityType\": \"TRANSACTION\",\n      \"entityId\": 320,\n      \"role\": \"string\",\n      \"description\": \"string\",\n      \"status\": \"FAILED\",\n      \"ipAddress\": \"string\",\n      \"userAgent\": \"string\",\n      \"createdAt\": \"1992-06-17T00:13:46.540Z\"\n    },\n    {\n      \"id\": 8359,\n      \"userEmail\": \"string\",\n      \"action\": \"TRANSACTION_COMPLETED\",\n      \"entityType\": \"USER\",\n      \"entityId\": 9839,\n      \"role\": \"string\",\n      \"description\": \"string\",\n      \"status\": \"FAILED\",\n      \"ipAddress\": \"string\",\n      \"userAgent\": \"string\",\n      \"createdAt\": \"1956-10-23T06:22:22.174Z\"\n    }\n  ],\n  \"number\": 2066,\n  \"sort\": {\n    \"empty\": false,\n    \"sorted\": false,\n    \"unsorted\": true\n  },\n  \"first\": true,\n  \"last\": true,\n  \"pageable\": {\n    \"offset\": 4464,\n    \"sort\": {\n      \"empty\": true,\n      \"sorted\": false,\n      \"unsorted\": true\n    },\n    \"pageSize\": 9024,\n    \"pageNumber\": 3311,\n    \"paged\": true,\n    \"unpaged\": true\n  },\n  \"empty\": true\n}"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "get All Audits",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/admin/audits",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "admin",
+                        "audits"
+                      ],
+                      "query": [
+                        {
+                          "key": "page",
+                          "value": "",
+                          "disabled": true
+                        },
+                        {
+                          "key": "size",
+                          "value": "20",
+                          "disabled": true
+                        },
+                        {
+                          "key": "sort",
+                          "value": "createdAt,desc",
+                          "disabled": true
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/admin/audits?page=6241&size=7175&sort=string,string",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "admin",
+                            "audits"
+                          ],
+                          "query": [
+                            {
+                              "key": "page",
+                              "value": "6241"
+                            },
+                            {
+                              "key": "size",
+                              "value": "7175"
+                            },
+                            {
+                              "key": "sort",
+                              "value": "string,string"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"totalElements\": 2294,\n  \"totalPages\": 7485,\n  \"numberOfElements\": 2474,\n  \"size\": 7260,\n  \"content\": [\n    {\n      \"id\": 3202,\n      \"userEmail\": \"string\",\n      \"action\": \"LOGIN\",\n      \"entityType\": \"TRANSACTION\",\n      \"entityId\": 320,\n      \"role\": \"string\",\n      \"description\": \"string\",\n      \"status\": \"FAILED\",\n      \"ipAddress\": \"string\",\n      \"userAgent\": \"string\",\n      \"createdAt\": \"1992-06-17T00:13:46.540Z\"\n    },\n    {\n      \"id\": 8359,\n      \"userEmail\": \"string\",\n      \"action\": \"TRANSACTION_COMPLETED\",\n      \"entityType\": \"USER\",\n      \"entityId\": 9839,\n      \"role\": \"string\",\n      \"description\": \"string\",\n      \"status\": \"FAILED\",\n      \"ipAddress\": \"string\",\n      \"userAgent\": \"string\",\n      \"createdAt\": \"1956-10-23T06:22:22.174Z\"\n    }\n  ],\n  \"number\": 2066,\n  \"sort\": {\n    \"empty\": false,\n    \"sorted\": false,\n    \"unsorted\": true\n  },\n  \"first\": true,\n  \"last\": true,\n  \"pageable\": {\n    \"offset\": 4464,\n    \"sort\": {\n      \"empty\": true,\n      \"sorted\": false,\n      \"unsorted\": true\n    },\n    \"pageSize\": 9024,\n    \"pageNumber\": 3311,\n    \"paged\": true,\n    \"unpaged\": true\n  },\n  \"empty\": true\n}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "account",
+              "item": [
+                {
+                  "name": "filter",
+                  "item": [
+                    {
+                      "name": "filter Accounts",
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"accountNumber\": \"string\",\n  \"userEmail\": \"string\",\n  \"status\": \"CLOSED\",\n  \"type\": \"CURRENT\",\n  \"minBalance\": 2622.8791338173196,\n  \"maxBalance\": 214.38096442204736\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/admin/account/filter",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "admin",
+                            "account",
+                            "filter"
+                          ],
+                          "query": [
+                            {
+                              "key": "page",
+                              "value": "6241",
+                              "disabled": true
+                            },
+                            {
+                              "key": "size",
+                              "value": "7175",
+                              "disabled": true
+                            },
+                            {
+                              "key": "sort",
+                              "value": "string,string",
+                              "disabled": true
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"accountNumber\": \"string\",\n  \"userEmail\": \"string\",\n  \"status\": \"CLOSED\",\n  \"type\": \"CURRENT\",\n  \"minBalance\": 2622.8791338173196,\n  \"maxBalance\": 214.38096442204736\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/admin/account/filter?page=6241&size=7175&sort=string,string",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "admin",
+                                "account",
+                                "filter"
+                              ],
+                              "query": [
+                                {
+                                  "key": "page",
+                                  "value": "6241"
+                                },
+                                {
+                                  "key": "size",
+                                  "value": "7175"
+                                },
+                                {
+                                  "key": "sort",
+                                  "value": "string,string"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{\n  \"totalElements\": 7609,\n  \"totalPages\": 8200,\n  \"numberOfElements\": 9747,\n  \"size\": 1196,\n  \"content\": [\n    {\n      \"id\": 3806,\n      \"accountNumber\": \"string\",\n      \"type\": \"CURRENT\",\n      \"status\": \"OPEN\",\n      \"balance\": 3826.1582891606595,\n      \"userId\": 9018,\n      \"email\": \"string\",\n      \"transactionCount\": 7816,\n      \"createdAt\": \"1994-05-17T12:12:26.865Z\"\n    },\n    {\n      \"id\": 6164,\n      \"accountNumber\": \"string\",\n      \"type\": \"CURRENT\",\n      \"status\": \"CLOSED\",\n      \"balance\": 2418.3162945386825,\n      \"userId\": 5597,\n      \"email\": \"string\",\n      \"transactionCount\": 7160,\n      \"createdAt\": \"2006-01-02T11:36:57.194Z\"\n    }\n  ],\n  \"number\": 1377,\n  \"sort\": {\n    \"empty\": false,\n    \"sorted\": true,\n    \"unsorted\": true\n  },\n  \"first\": true,\n  \"last\": false,\n  \"pageable\": {\n    \"offset\": 783,\n    \"sort\": {\n      \"empty\": true,\n      \"sorted\": true,\n      \"unsorted\": true\n    },\n    \"pageSize\": 7958,\n    \"pageNumber\": 8526,\n    \"paged\": true,\n    \"unpaged\": true\n  },\n  \"empty\": true\n}"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "createAccount",
+                  "item": [
+                    {
+                      "name": "create Account By Email",
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"type\": \"CURRENT\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/admin/account/createAccount?email=demo123@gmail.com",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "admin",
+                            "account",
+                            "createAccount"
+                          ],
+                          "query": [
+                            {
+                              "key": "email",
+                              "value": "demo123@gmail.com"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"type\": \"CURRENT\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/admin/account/createAccount?email=string",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "admin",
+                                "account",
+                                "createAccount"
+                              ],
+                              "query": [
+                                {
+                                  "key": "email",
+                                  "value": "string"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{}"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "change-status",
+                  "item": [
+                    {
+                      "name": "change Status",
+                      "request": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"id\": 13,\n  \"status\": \"FROZEN\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/admin/account/change-status",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "admin",
+                            "account",
+                            "change-status"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"id\": 946,\n  \"status\": \"FROZEN\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/admin/account/change-status",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "admin",
+                                "account",
+                                "change-status"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "body": ""
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "user-email",
+                  "item": [
+                    {
+                      "name": "get Accounts By User Email",
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/admin/account/user-email?email=demo123@gmail.com",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "admin",
+                            "account",
+                            "user-email"
+                          ],
+                          "query": [
+                            {
+                              "key": "email",
+                              "value": "demo123@gmail.com"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/admin/account/user-email?email=string",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "admin",
+                                "account",
+                                "user-email"
+                              ],
+                              "query": [
+                                {
+                                  "key": "email",
+                                  "value": "string"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "[]"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "id",
+                  "item": [
+                    {
+                      "name": "{accountId}",
+                      "item": [
+                        {
+                          "name": "get Account By Id",
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/admin/account/id/:accountId",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "admin",
+                                "account",
+                                "id",
+                                ":accountId"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "accountId",
+                                  "value": "2"
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "*/*"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: bearer",
+                                    "key": "Authorization",
+                                    "value": "Bearer <token>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/admin/account/id/:accountId",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "admin",
+                                    "account",
+                                    "id",
+                                    ":accountId"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "accountId",
+                                      "value": "286"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "*/*"
+                                }
+                              ],
+                              "cookie": [],
+                              "body": "{}"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "name": "get All Accounts",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/admin/account",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "admin",
+                        "account"
+                      ],
+                      "query": [
+                        {
+                          "key": "page",
+                          "value": "6241",
+                          "disabled": true
+                        },
+                        {
+                          "key": "size",
+                          "value": "7175",
+                          "disabled": true
+                        },
+                        {
+                          "key": "sort",
+                          "value": "string,string",
+                          "disabled": true
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/admin/account?page=6241&size=7175&sort=string,string",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "admin",
+                            "account"
+                          ],
+                          "query": [
+                            {
+                              "key": "page",
+                              "value": "6241"
+                            },
+                            {
+                              "key": "size",
+                              "value": "7175"
+                            },
+                            {
+                              "key": "sort",
+                              "value": "string,string"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"totalElements\": 7609,\n  \"totalPages\": 8200,\n  \"numberOfElements\": 9747,\n  \"size\": 1196,\n  \"content\": [\n    {\n      \"id\": 3806,\n      \"accountNumber\": \"string\",\n      \"type\": \"CURRENT\",\n      \"status\": \"OPEN\",\n      \"balance\": 3826.1582891606595,\n      \"userId\": 9018,\n      \"email\": \"string\",\n      \"transactionCount\": 7816,\n      \"createdAt\": \"1994-05-17T12:12:26.865Z\"\n    },\n    {\n      \"id\": 6164,\n      \"accountNumber\": \"string\",\n      \"type\": \"CURRENT\",\n      \"status\": \"CLOSED\",\n      \"balance\": 2418.3162945386825,\n      \"userId\": 5597,\n      \"email\": \"string\",\n      \"transactionCount\": 7160,\n      \"createdAt\": \"2006-01-02T11:36:57.194Z\"\n    }\n  ],\n  \"number\": 1377,\n  \"sort\": {\n    \"empty\": false,\n    \"sorted\": true,\n    \"unsorted\": true\n  },\n  \"first\": true,\n  \"last\": false,\n  \"pageable\": {\n    \"offset\": 783,\n    \"sort\": {\n      \"empty\": true,\n      \"sorted\": true,\n      \"unsorted\": true\n    },\n    \"pageSize\": 7958,\n    \"pageNumber\": 8526,\n    \"paged\": true,\n    \"unpaged\": true\n  },\n  \"empty\": true\n}"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "dashboard",
+              "item": [
+                {
+                  "name": "dashboard",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/admin/dashboard",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "admin",
+                        "dashboard"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/admin/dashboard",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "admin",
+                            "dashboard"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"totalUsers\": 299,\n  \"activeUsers\": 3539,\n  \"totalAccounts\": 5580,\n  \"activeAccounts\": 8090,\n  \"todayTransactionCount\": 5393,\n  \"todayTransactionAmount\": 8380.846530752302\n}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "account",
+          "item": [
+            {
+              "name": "user",
+              "item": [
+                {
+                  "name": "get My Accounts",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/account/user",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "account",
+                        "user"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/account/user",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "account",
+                            "user"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "[]"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "number",
+              "item": [
+                {
+                  "name": "{accountNumber}",
+                  "item": [
+                    {
+                      "name": "get Account By Account Number",
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/account/number/:accountNumber",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "account",
+                            "number",
+                            ":accountNumber"
+                          ],
+                          "variable": [
+                            {
+                              "key": "accountNumber",
+                              "value": "ACC-2026-0000XX"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "*/*"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: bearer",
+                                "key": "Authorization",
+                                "value": "Bearer <token>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/account/number/:accountNumber",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "account",
+                                "number",
+                                ":accountNumber"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "accountNumber",
+                                  "value": "string"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "*/*"
+                            }
+                          ],
+                          "cookie": [],
+                          "body": "{}"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "create Account",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/json"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "*/*"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"type\": \"CURRENT\" //CURRENT OR SAVING\n}\n",
+                  "options": {
+                    "raw": {
+                      "headerFamily": "json",
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/api/account",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    "api",
+                    "account"
+                  ]
+                }
+              },
+              "response": [
+                {
+                  "name": "OK",
+                  "originalRequest": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: bearer",
+                        "key": "Authorization",
+                        "value": "Bearer <token>"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"type\": \"CURRENT\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/account",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "account"
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "text",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "*/*"
+                    }
+                  ],
+                  "cookie": [],
+                  "body": "{}"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "name": "user",
+          "item": [
+            {
+              "name": "getUserData",
+              "item": [
+                {
+                  "name": "get User",
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "*/*"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/user/getUserData",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "user",
+                        "getUserData"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "*/*"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: bearer",
+                            "key": "Authorization",
+                            "value": "Bearer <token>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/user/getUserData",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "user",
+                            "getUserData"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "text",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "*/*"
+                        }
+                      ],
+                      "cookie": [],
+                      "body": "{\n  \"id\": 1062,\n  \"fullName\": \"string\",\n  \"email\": \"string\",\n  \"role\": \"string\",\n  \"createdAt\": \"1976-12-22T20:45:14.032Z\"\n}"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkZW1vMTIzQGdtYWlsLmNvbSIsImlhdCI6MTc3MTgzMzIwNywiZXhwIjoxNzcxODM2ODA3fQ.jCqQcmmGtdO1MZgCB5yHT0xVmMHBIqOf9HB9t6lq0k4",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8081"
+    }
+  ]
+}
