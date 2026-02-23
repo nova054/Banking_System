@@ -67,7 +67,7 @@ curl -X POST http://localhost:8081/api/auth/register \
 
 # Access Swagger UI
 open http://localhost:8081/swagger-ui.html
-
+```
 ## 🧪 Postman Collection
 
 A ready-to-use Postman collection is available for quick API testing.
